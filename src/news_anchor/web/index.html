@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>News Anchor</title>
+  <link rel="shortcut icon" type="image/ico" href="icon.ico">
+
+  <link rel="stylesheet" href="main.css">
+  <link rel="import" href="packages/core_elements/core_drawer_panel.html">
+  <link rel="import" href="packages/core_elements/core_field.html">
+  <link rel="import" href="packages/core_elements/core_header_panel.html">
+  <link rel="import" href="packages/core_elements/core_menu.html">
+  <link rel="import" href="packages/core_elements/core_overlay.html">
+  <link rel="import" href="packages/core_elements/core_toolbar.html">
+  <link rel="import" href="packages/core_elements/core_tooltip.html">
+  <link rel="import" href="packages/paper_elements/paper_button.html">
+  <link rel="import" href="packages/paper_elements/paper_checkbox.html">
+  <link rel="import" href="packages/paper_elements/paper_icon_button.html">
+  <link rel="import" href="packages/paper_elements/paper_input.html">
+  <link rel="import" href="packages/paper_elements/paper_item.html">
+  <link rel="import" href="packages/paper_elements/paper_spinner.html">
+  <link rel="import" href="packages/paper_elements/paper_toast.html">
+  <link rel="import" href="story_element.html">
+</head>
+
+<body unresolved fullbleed vertical layout>
+
+<core-drawer-panel forceNarrow>
+  <core-header-panel drawer mode="waterfall">
+    <core-toolbar>Topics</core-toolbar>
+    <core-menu id="topics" selected="0">
+      <paper-item id="all" class="topic">Most Recent</paper-item>
+      <paper-item id="top-stories" class="topic">Top Stories</paper-item>
+      <paper-item id="location" class="topic">Local Stories</paper-item>
+      <paper-item id="world" class="topic">World</paper-item>
+      <paper-item id="uk" class="topic">U.K.</paper-item>
+      <paper-item id="business" class="topic">Business</paper-item>
+      <paper-item id="technology" class="topic">Technology</paper-item>
+      <paper-item id="entertainment" class="topic">Entertainment</paper-item>
+      <paper-item id="sports" class="topic">Sports</paper-item>
+      <paper-item id="science" class="topic">Science</paper-item>
+      <paper-item id="health" class="topic">Health</paper-item>
+      <div id="separator"></div>
+      <paper-item id="positive-reactions" class="topic">
+        Positive Reactions
+      </paper-item>
+      <paper-item id="negative-reactions" class="topic">
+        Negative Reactions
+      </paper-item>
+      <paper-item id="blacklist" class="topic">Blacklist</paper-item>
+    </core-menu>
+  </core-header-panel>
+
+  <core-header-panel main>
+    <core-toolbar>
+      <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+      <div id="title">News</div>
+      <div flex></div>
+      <core-field id="search-main">
+        <core-icon icon="search"></core-icon>
+        <input id="search-input" type="text" placeholder="Search" flex>
+      </core-field>
+      <div flex></div>
+      <core-tooltip label="Blacklist settings" noarrow="true" position="left">
+        <paper-icon-button id="blacklist-settings-button" icon="settings">
+        </paper-icon-button>
+      </core-tooltip>
+      <core-tooltip label="Refresh stories" noarrow="true" position="left">
+        <paper-icon-button id="refresh-button" icon="refresh">
+        </paper-icon-button>
+      </core-tooltip>
+    </core-toolbar>
+    <div id="main-content">
+      <paper-spinner id="loading" active='true' alt="Loading"></paper-spinner>
+      <paper-toast id="notification" duration="5000"></paper-toast>
+      <core-overlay id="location-overlay" layout vertical center>
+        <h3>Enter a location</h3>
+        <paper-input id="location-input" label="Location" autofocus>
+        </paper-input>
+        <paper-button id="location-button" core-overlay-toggle>OK</paper-button>
+      </core-overlay>
+
+      <core-overlay id="add-blacklist-overlay" layout vertical center>
+        <h3>Add to blacklist</h3>
+        <paper-input id="add-blacklist-input" label="Topic" autofocus>
+        </paper-input>
+        <paper-button id="add-blacklist-button" core-overlay-toggle>
+          Add
+        </paper-button>
+      </core-overlay>
+
+      <core-overlay id="manage-blacklist-overlay" layout vertical center>
+        <h3>Blacklist</h3>
+        <div id="list-blacklist-topics"></div>
+        <paper-button id="manage-blacklist-button" core-overlay-toggle>
+          Delete
+        </paper-button>
+      </core-overlay>
+      <div id="stories"></div>
+    </div>
+  </core-header-panel>
+</core-drawer-panel>
+
+<script type="application/dart" src="main.dart"></script>
+</body>
+</html>

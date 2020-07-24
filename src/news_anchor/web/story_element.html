@@ -1,0 +1,65 @@
+<link rel="import" href="packages/core_elements/av_icons.html">
+<link rel="import" href="packages/core_elements/core_tooltip.html">
+<link rel="import" href="packages/paper_elements/paper_button.html">
+<link rel="import" href="packages/paper_elements/paper_icon_button.html">
+<link rel="import" href="packages/paper_elements/paper_shadow.html">
+<link rel="import" href="packages/polymer/polymer.html">
+
+<polymer-element name="story-element">
+
+  <template>
+    <link rel="stylesheet" href="story_element.css" shim-shadowdom>
+
+    <paper-shadow z="1">
+      <div id="header" horizontal layout>
+        <div id="user-image">
+          <img _src="{{image}}">
+        </div>
+        <div id="user-details" flex>
+          <div horizontal layout>
+            <div id="publisher">{{publisher}}</div>
+          </div>
+          <div id="date-published">{{date}}</div>
+        </div>
+      </div>
+
+      <div id="content">
+        <div id="title">{{title}}</div>
+        <div id="text">{{text}}</div>
+        <div id="photos">
+          <core-tooltip id="photo-label">
+            <img id="photo" _src="{{photo}}" on-click="{{nextPhoto}}">
+          </core-tooltip>
+        </div>
+        <div horizontal layout center-center>
+          <div>
+            <a _href="{{url}}" target="_blank">
+              <paper-button id="story-url-button">View Story</paper-button>
+            </a>
+          </div>
+          <div flex></div>
+          <div>
+            <core-tooltip label="Positive reaction" noarrow="true">
+              <paper-icon-button id="positive-button"
+                  icon="{{positiveIcon}}" on-click="{{positiveReaction}}">
+              </paper-icon-button>
+            </core-tooltip>
+            <core-tooltip label="Negative reaction" noarrow="true">
+              <paper-icon-button id="negative-button"
+                  icon="{{negativeIcon}}" on-click="{{negativeReaction}}">
+              </paper-icon-button>
+            </core-tooltip>
+            <core-tooltip label="Add to blacklist" noarrow="true">
+              <paper-icon-button id="blacklist-button" icon="av:not-interested"
+                  on-click="{{blacklist}}">
+              </paper-icon-button>
+            </core-tooltip>
+          </div>
+        </div>
+      </div>
+    </paper-shadow>
+  </template>
+
+  <script type="application/dart" src="twitter.dart"></script>
+
+</polymer-element>

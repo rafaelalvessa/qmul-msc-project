@@ -1,0 +1,108 @@
+paper-shadow {
+  max-width: 500px;
+  margin: 25px auto;
+  border-radius: 2px;
+  padding: 10px 10px 5px;
+  background-color: #fff;
+}
+
+a {
+  color: #2196f3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#header {
+  padding: 5px;
+}
+
+#user-image img {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+#user-details {
+  margin: auto 0;
+  padding: 0 10px;
+}
+
+#publisher {
+  padding: 0 0 5px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#date-published {
+  font-size: .9em;
+  color: #757575;
+}
+
+#title {
+  margin-top: 15px;
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+#text {
+  margin-top: 15px;
+  padding: 0 5px;
+  font-size: .9em;
+  line-height: 1.4;
+}
+
+#photo {
+  max-width: 100%;
+  margin: 20px auto 0;
+  display: block;
+}
+
+.multiPhotos {
+  cursor: pointer;
+}
+
+#photo-label {
+  height: 0;
+}
+
+#story-url-button {
+  color: #2196f3;
+  font-size: 0.75em;
+}
+
+#story-url-button::shadow #ripple,
+paper-icon-button::shadow #ripple {
+  color: #9e9e9e;
+}
+
+paper-icon-button {
+  padding: 5px;
+}
+
+core-tooltip::shadow #tooltip {
+  font-size: .75em;
+}
+
+#positive-button:hover {
+  color: #388e3c;
+}
+
+.positive-button-selected {
+  color: #388e3c;
+}
+
+#negative-button:hover {
+  color: #d32f2f;
+}
+
+.negative-button-selected {
+  color: #d32f2f;
+}
+
+#blacklist-button:hover {
+  color: #607d8b;
+}
